@@ -183,6 +183,7 @@ form button:hover {
   border-radius: 10px;
 }
 .menu-toggle {
+  position: absolute;
   display: none;
   font-size: 28px;
   cursor: pointer;
@@ -311,7 +312,7 @@ form button:hover {
 .float-btn.mail     { background-color: #ff5e5e; }
 /* Tema Değiştirici Buton */
 .dark-toggle {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   background-color: #003366;
