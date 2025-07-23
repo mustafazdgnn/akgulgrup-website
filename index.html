@@ -168,21 +168,35 @@ Bugün Akgül Grup Enerji olarak, alanında uzman ekibimizle birlikte; kaliteli,
 
 
 
-  <section id="teklif" class="quote">
+  <!-- Teklif Al Sekmesi (HTML) - DERLİ TOPLU ve YORUMLU HALİ -->
+<section id="teklif" class="quote">
   <h2>Teklif Alın</h2>
-  <form action="https://formspree.io/f/xblkjpgo" method="POST" enctype="multipart/form-data">
+
+  <!-- Form başarı mesajı, sadece gönderim başarılıysa görünür -->
+  <div id="form-message" style="display:none; color: green; font-weight: bold; margin-bottom: 10px;">
+    Başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.
+  </div>
+
+  <!-- Teklif formu başlangıcı -->
+  <form id="teklifForm" action="https://formspree.io/f/xanbedqr" method="POST" enctype="multipart/form-data">
+
+    <!-- Firma Adı -->
     <label for="firma">Firma Adı:</label>
     <input type="text" id="firma" name="Firma" required />
 
-    <label for="yetkili">Yetkili Kişi:</label>
+    <!-- Yetkili Kışi -->
+    <label for="yetkili">Yetkili Kışi:</label>
     <input type="text" id="yetkili" name="Yetkili" required />
 
+    <!-- Telefon -->
     <label for="phone">Telefon:</label>
     <input type="tel" id="phone" name="Telefon" required />
 
+    <!-- E-posta -->
     <label for="email">E-posta:</label>
     <input type="email" id="email" name="Email" required />
 
+    <!-- Hizmet Tipi Seçimi -->
     <label for="hizmet">Hizmet Tipi:</label>
     <select id="hizmet" name="Hizmet Tipi">
       <option value="Güneş Enerjisi">Güneş Enerjisi</option>
@@ -191,15 +205,19 @@ Bugün Akgül Grup Enerji olarak, alanında uzman ekibimizle birlikte; kaliteli,
       <option value="Diğer">Diğer</option>
     </select>
 
+    <!-- Tarih Seçimi -->
     <label for="tarih">İstenen Tarih:</label>
     <input type="date" id="tarih" name="Tarih" />
 
+    <!-- Proje Detayı -->
     <label for="message">Proje Detayı:</label>
     <textarea id="message" name="Proje Açıklaması" rows="5" required></textarea>
 
+    <!-- Dosya Ekleme Alanı (PDF, resim) -->
     <label for="dosya">Dosya Ekle (PDF, resim):</label>
-    <input type="file" id="dosya" name="Dosya">
+    <input type="file" id="dosya" name="Dosya" />
 
+    <!-- Gönder Butonu -->
     <button type="submit">Teklif Al</button>
   </form>
 </section>
@@ -214,44 +232,37 @@ Bugün Akgül Grup Enerji olarak, alanında uzman ekibimizle birlikte; kaliteli,
     <p>© 2025 Akgül Grup Enerji. Tüm hakları saklıdır.</p>
   </footer>
 
-  <script>
-    // Form gönderim mesajı
-    const form = document.querySelector("form");
-    const message = document.getElementById("form-message");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const action = form.getAttribute("action");
-      fetch(action, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" }
-      }).then(response => {
-        if (response.ok) {
-          message.style.display = "block";
-          form.reset();
-        } else {
-          alert("Form gönderilemedi. Lütfen tekrar deneyin.");
-        }
-      }).catch(() => alert("Bağlantı hatası oluştu."));
-    });
+  <!-- JavaScript Kodu (Formspree ile POST gönderimi) -->
+<script>
+  const form = document.getElementById("teklifForm");
+  const message = document.getElementById("form-message");
 
-    // Carousel & Lightbox
-    let currentSlide = 0;
-    function moveSlide(direction) {
-      const carousel = document.querySelector(".carousel");
-      const images = carousel.querySelectorAll("img");
-      currentSlide = (currentSlide + direction + images.length) % images.length;
-      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-    function openLightbox(src) {
-      document.getElementById("lightbox-img").src = src;
-      document.getElementById("lightbox").style.display = "flex";
-    }
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  </script>
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Sayfa yenilenmesin
+
+    const data = new FormData(form);
+    const action = form.getAttribute("action");
+
+    fetch(action, {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          message.style.display = "block"; // Mesajı göster
+          form.reset(); // Formu temizle
+        } else {
+          alert("Form gönderilemedi. Lütfen bilgileri kontrol edin.");
+        }
+      })
+      .catch(() => {
+        alert("Bağlantı hatası oluştu. ");
+      });
+  });
+</script>
   <script>
   function toggleMenu() {
     const menu = document.getElementById("nav-menu");
