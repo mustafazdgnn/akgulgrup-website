@@ -369,3 +369,29 @@ body.dark-mode .testimonial {
 body.dark-mode .float-btn {
   filter: brightness(0.9);
 }
+/* === Gece modunda PORTFOLIO kutusu === */
+.dark-mode .portfolio {
+  background-color: #1a1a1a; /* koyu gri */
+  color: #f0f0f0;
+  border-left: 5px solid #00ccff;
+}
+
+/* === Gece modunda HEADER başlık === */
+.dark-mode header h1,
+.dark-mode .site-title {
+  color: #ffffff;
+}
+
+/* === Gece modunda TEKLİF kısmı yazılar === */
+.dark-mode .quote label,
+.dark-mode .quote input,
+.dark-mode .quote textarea {
+  color: #ffffff;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+.dark-mode .quote input::placeholder,
+.dark-mode .quote textarea::placeholder {
+  color: #aaa;
+}

@@ -38,7 +38,6 @@
       <img src="WhatsApp Görsel 2025-07-23 saat 08.39.11_4b3810721.jpg" alt="Logo" class="nav-logo" />
       <h1 class="site-title">Akgül Grup Enerji</h1>
       <nav>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
           <ul id="nav-menu">
             <li><a href="#hakkimizda">Hakkımızda</a></li>
             <li><a href="#hizmetler">Hizmetler</a></li>
@@ -170,26 +169,41 @@ Bugün Akgül Grup Enerji olarak, alanında uzman ekibimizle birlikte; kaliteli,
 
 
   <section id="teklif" class="quote">
-    <h2>Teklif Alın</h2>
-    <form action="https://formspree.io/f/xblkjpgo" method="POST">
-      <label for="name">Firma İsmi:</label>
-      <input type="text" id="name" name="name" required />
+  <h2>Teklif Alın</h2>
+  <form action="https://formspree.io/f/xblkjpgo" method="POST" enctype="multipart/form-data">
+    <label for="firma">Firma Adı:</label>
+    <input type="text" id="firma" name="Firma" required />
 
-      <label for="email">E-posta:</label>
-      <input type="email" id="email" name="email" required />
+    <label for="yetkili">Yetkili Kişi:</label>
+    <input type="text" id="yetkili" name="Yetkili" required />
 
-      <label for="phone">Telefon:</label>
-      <input type="tel" id="phone" name="phone" required />
+    <label for="phone">Telefon:</label>
+    <input type="tel" id="phone" name="Telefon" required />
 
-      <label for="message">Proje Detayı:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+    <label for="email">E-posta:</label>
+    <input type="email" id="email" name="Email" required />
 
-      <button type="submit">Teklif Al</button>
-    </form>
-    <p id="form-message" style="color: green; font-weight: bold; display: none; margin-top: 15px;">
-      Teşekkürler! Mesajınız başarıyla gönderildi.
-    </p>
-  </section>
+    <label for="hizmet">Hizmet Tipi:</label>
+    <select id="hizmet" name="Hizmet Tipi">
+      <option value="Güneş Enerjisi">Güneş Enerjisi</option>
+      <option value="Kompanzasyon Takibi">Kompanzasyon Takibi</option>
+      <option value="Elektrik Panoları">Elektrik Panoları</option>
+      <option value="Diğer">Diğer</option>
+    </select>
+
+    <label for="tarih">İstenen Tarih:</label>
+    <input type="date" id="tarih" name="Tarih" />
+
+    <label for="message">Proje Detayı:</label>
+    <textarea id="message" name="Proje Açıklaması" rows="5" required></textarea>
+
+    <label for="dosya">Dosya Ekle (PDF, resim):</label>
+    <input type="file" id="dosya" name="Dosya">
+
+    <button type="submit">Teklif Al</button>
+  </form>
+</section>
+
 
   <section id="iletisim" class="contact">
     <h2>İletişim</h2>
@@ -261,6 +275,7 @@ Bugün Akgül Grup Enerji olarak, alanında uzman ekibimizle birlikte; kaliteli,
     document.body.classList.toggle('dark-mode');
   });
 </script>
+//class="menu-toggle" onclick="toggleMenu()"☰
 
 </body>
 </html>
